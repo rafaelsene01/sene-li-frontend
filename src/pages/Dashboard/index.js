@@ -35,7 +35,6 @@ export default function Dashboard() {
       const response = await api.get('/all/link', {
         params: page,
       });
-
       setLinks(response.data);
     }
 
