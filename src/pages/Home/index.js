@@ -1,25 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import api from '../../services/api';
+import { Container } from './styles';
 
-export default function Home({match}) {
-  const { link } = match.params;
-
-  useEffect(() => {
-    async function getLink() {
-      const response = await api.get(`/${link}`)
-
-      const { redirect_url } = response.data;
-      
-      if(redirect_url){
-        window.location.href = redirect_url;
-      }
-    }
-
-    getLink();
-  }, [link]);
-
+export default function Dashboard() {
   return (
-    <div />
+    <Container>
+      <h1>Crie e compartilhe links</h1>
+      <Link to="/login">Ja tenho login</Link>
+      <Link to="/register">Criar conta gratuita</Link>
+    </Container>
   );
 }
