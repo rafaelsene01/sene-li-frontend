@@ -18,6 +18,7 @@ const schema = Yup.object().shape({
     .min(4, 'Minimo 4 caracteres')
     .required('Custom URL obrigatorio'),
   redirect_url: Yup.string()
+    .url('Ex: http://dominio.com')
     .min(6, 'Minimo 6 caracteres')
     .required('URL'),
 });
