@@ -7,13 +7,22 @@ export default function Home({match}) {
 
   useEffect(() => {
     async function getLink() {
-      const response = await api.get(`/${link}`)
+      console.log('init')
 
-      const { redirect_url } = response.data;
-      
-      if(redirect_url){
-        window.location.href = redirect_url;
+      try {
+        const response = await api.get(`/${link}`)
+
+        const { redirect_url } = response.data;
+        
+        if(redirect_url){
+          window.location.href = redirect_url;
+        }
+      } catch (error) {
+        
       }
+      
+      window.location.href = 'https://app.sene.li';
+
     }
 
     getLink();
